@@ -2,7 +2,7 @@
 
 
 ## **Eligibility Traces**
-- When TD methods are augmented with eligibility traces, they produce a family of methods spanning a spectrum that has Monte Carlo methods at one end ("=1) and one-step TD methods at the other ("=0). In between are intermediate methods that are often better than either extreme method.
+- When TD methods are augmented with eligibility traces, they produce a family of methods spanning a spectrum that has Monte Carlo methods at one end (λ=1) and one-step TD methods at the other (λ=0). In between are intermediate methods that are often better than either extreme method.
 - The mechanism is a short-term memory vector, the *eligibility trace* **z***t*, that parallels the long-term weight vector **w***t*. The rough idea is that when a component of wt participates in producing an estimated value, then the corresponding component of **z***t* is bumped up and then begins to fade away. Learning will then occur in that component of **w***t* if a nonzero TD error occurs before the trace falls back to zero. The trace-decay parameter λ => [0, 1] determines the rate at which the trace falls.
 - Advantages over n-step methods:
     1. Only a single trace vector is required rather than a store of the last n feature vectors.
@@ -50,13 +50,13 @@
 - *Truncated TD(λ)* (aka **TDD(λ)**): Introduce n-step to terminate contining cases.
 
 ## **Redoing Updates: Online λ-return Algorithm**
-- *n* should be large so that the method closely approximates the o✏ine "-return algorithm, but it should also be small so that the updates can be made sooner and can influence behavior sooner.
+- *n* should be large so that the method closely approximates the offine λ-return algorithm, but it should also be small so that the updates can be made sooner and can influence behavior sooner.
     - To get the best of both (albeit at the cost of computational complexity)
         - On each time step as you gather a new increment of data, you go back and redo all the updates since the beginning of the current episode.
 
 ## **True Online TD(λ)**
 ![alt_text](../images/triangle.JPG 'image')
-- One row of this triangle is produced on each time step. It turns out that the weight vectors on the diagonal, the wtt, are the only ones really needed. The first, w00, is the initial weight vector of the episode, the last, wTT , is the final weight vector, and each weight vector along the way, wtt, plays a role in bootstrapping in the n-step returns of the updates. In the final algorithm the diagonal weight vectors are renamed without a superscript, wt .= wtt. The strategy then is to find a compact, efficient way of computing each wtt from the one before. If this is done, for the linear case in which ˆv(s,w) = w>x(s), then we arrive at the true online TD(") algorithm:
+- One row of this triangle is produced on each time step. It turns out that the weight vectors on the diagonal, the wtt, are the only ones really needed. The first, w00, is the initial weight vector of the episode, the last, wTT , is the final weight vector, and each weight vector along the way, wtt, plays a role in bootstrapping in the n-step returns of the updates. In the final algorithm the diagonal weight vectors are renamed without a superscript, wt .= wtt. The strategy then is to find a compact, efficient way of computing each wtt from the one before. If this is done, for the linear case in which ˆv(s,w) = w>x(s), then we arrive at the true online TD(λ) algorithm:
 ![alt_text](../images/online-td.JPG 'image')
 
 ## ***Dutch Traces in Monte Carlo Learning**
