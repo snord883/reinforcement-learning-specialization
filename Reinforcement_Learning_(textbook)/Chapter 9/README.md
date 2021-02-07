@@ -15,8 +15,8 @@
     - Not possible to get exact values for all states
 - Need to determine importance of each state by *Mean Squared Value Error* 
     - Often μ(s) is chosen to be the fraction of time spent in s<br>
-![alt_text](..\images\state-distribution.JPG 'image') <br>
-![alt_text](..\images\MSE.JPG 'image')
+![alt_text](../images/state-distribution.JPG 'image') <br>
+![alt_text](../images/MSE.JPG 'image')
 
 - Let h(s) denote the probability that an episode begins in each state s, and let n(s) denote the number of time steps spent
     1. Probability action *a* occurs, given in proceeding state |*s*
@@ -24,60 +24,60 @@
     - If there is discounting (γ < 1) it
 should be treated as a form of termination, which can be done simply by including
 a factor of γ in the second term
-![alt_text](..\images\on-policy-distribution.JPG 'image')<br>
-![alt_text](..\images\state-distribution-equation.JPG 'image')
+![alt_text](../images/on-policy-distribution.JPG 'image')<br>
+![alt_text](../images/state-distribution-equation.JPG 'image')
 
 ## **Stochastic-gradient and Semi-gradient Methods**
 - *Stocastic Gradient Descent (SGD)*: adjust the weight vector after each example by a small amount in the direction that would most reduce the error
     - Most widely used function approximation learning methods
     - Well suited for online RL
     - *Stocastic*: update is done on only one example <br>
-![alt_text](..\images\sgd-equation.JPG 'image')
+![alt_text](../images/sgd-equation.JPG 'image')
 
 - *Semi-gradient* methods: They include only a part of the gradient
     - One does not obtain the same guarantees if a bootstrapping estimate of v(St) is used as the target Ut if SGD is used
     - They take into account the effect of changing the weight vector wt on the estimate, but ignore its effect on the target
 
 - *State Aggregation*: Is a generalizing function approximation in which states are grouped together, with one estimated value for each group
-![alt_text](..\images\state-aggregation-graph.JPG 'image')
+![alt_text](../images/state-aggregation-graph.JPG 'image')
 
 ## **Linear Methods**
 - Feature vector **x**(*s*)
 - Linear methods approximate state-value function: <br>
-![alt_text](..\images\linear-function.JPG 'image')
+![alt_text](../images/linear-function.JPG 'image')
 
 ## **Feature Construction for Linear Methods**
 - A limitation of the linear form is that it cannot take into account any interactions between features, such as the presence of feature i being good only in the absence of feature j.
     - **Polynomials**: Allow for the introduction of interactions between features
     - **Fourier Basis**: which expresses periodic functions as weighted sums of sine and cosine basis functions (features) of different frequencies
-    ![alt_text](..\images\poly-vs-fourier.JPG 'image')
+    ![alt_text](../images/poly-vs-fourier.JPG 'image')
     - **Coarse Coding**: Representing a state with features that overlap <br>
-    ![alt_text](..\images\coarse-coding.JPG 'image')
-    ![alt_text](..\images\coarse-coding-v2.JPG 'image')
+    ![alt_text](../images/coarse-coding.JPG 'image')
+    ![alt_text](../images/coarse-coding-v2.JPG 'image')
     - **Tile Coding**: In tile coding the receptive fields of the features are grouped into partitions of the state space. Each such partition is called a *tiling*, and each element of the partition is called a *tile*.
         - With just one tiling, we would not have coarse coding but just a case of state aggregation.
         - To get true coarse coding with tile coding, multiple tilings are used, each o↵set by a fraction of a tile width.
         - Exactly one feature is present in each tiling, so the total number of features present is always the same as the number of tilings. (Same for any state)
         - Hyperparameters: number of tilings and shape of the tiles
-    ![alt_text](..\images\tile-coding.JPG 'image')
-    ![alt_text](..\images\generalizing-tile-coding.JPG 'image')
+    ![alt_text](../images/tile-coding.JPG 'image')
+    ![alt_text](../images/generalizing-tile-coding.JPG 'image')
     - .
         - *Hashing*: a consistent pseudorandom collapsing of a large tiling into a much smaller set of tiles.
     - **Radial Basis Functions**: Rather than each feature being either 0 or 1, it can be anything in the interval [0, 1], reflecting various *degrees* to which the feature is present.
         - Typical RBF: Gaussian (bell-shaped) response xi(s) dependent only on the distance between the state, s, and the feature’s prototypical or center state, ci, and relative to the feature’s width, sigma
         -Advantage of RBFs over binary features is that they produce approximate functions that vary smoothly and are differentiable.
-        ![alt_text](..\images\rbf.JPG 'image')
+        ![alt_text](../images/rbf.JPG 'image')
 
 ## **Selecting Step-Size Parameters Manually**
 - This method works best if the feature vectors do not vary greatly in length; ideally xTx is a constant.
-![alt_text](..\images\step-size.JPG 'image')
+![alt_text](../images/step-size.JPG 'image')
 
 ## **Nonlinear Function Approximation: Artificial Neural Networks**
 - An ANN with no hidden layers can represent only a very small fraction of the possible input-output functions.
 - nonlinearity is essential: if all the units in a multi-layer feedforward ANN have linear activation functions, the entire network is equivalent to a network with no hidden layers (because linear functions of linear functions are themselves linear).
 - *Activation Function*: to produce the unit’s output, or activation. 
     - Different activation functions are used, but they are typically S-shaped, or sigmoid, functions such as the logistic function
-![alt_text](..\images\ann.JPG 'image')
+![alt_text](../images/ann.JPG 'image')
 - In reinforcement learning, ANNs can use TD errors to learn value functions, or they can aim to maximize expected reward as in a gradient bandit (Section 2.8) or a policy-gradient algorithm.
     - In the most common supervised learning case, the objective function is the expected error, or loss, over a set of labeled training examples
 - *Backpropagation algorithm*: which consists of alternating forward and backward passes through the network.
@@ -96,7 +96,7 @@ a factor of γ in the second term
         - *Batch Normalization*: adjusting each input variable to have zero mean and unit variance
         - *Deep Residual Learning*: 
         - *Deep Convolutional Networks*: 
-        ![alt_text](..\images\cnn.JPG 'image')
+        ![alt_text](../images/cnn.JPG 'image')
 
 ## **Least-Squares TD (LSTD)**
 

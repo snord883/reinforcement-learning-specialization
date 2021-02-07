@@ -10,14 +10,14 @@
 - TD: waits only until the end of the next time step and use the observed *reward* to update the estimate
     - Because its update in part is based on an existing estimate, we say it's a *bootstrapping* method, like DP
 - TD formula <br>
-![alt_text](..\images\td-prediction.JPG 'image')
+![alt_text](../images/td-prediction.JPG 'image')
 - MC formula   
     - MC: waits until the end of the episode to determine the *return* (only then is G*t* known) <br>
-![alt_text](..\images\mc-prediction.JPG 'image')
+![alt_text](../images/mc-prediction.JPG 'image')
 
 
-![alt_text](..\images\td-vs-mc-example.JPG 'image')
-![alt_text](..\images\td-vs-mc-graph.JPG 'image')
+![alt_text](../images/td-vs-mc-example.JPG 'image')
+![alt_text](../images/td-vs-mc-graph.JPG 'image')
 
 ## **SARSA**
 

@@ -12,7 +12,7 @@
 - *Visit* - each occurrence of state *s* in an episode
 - *First-visit MC* - estimates value of state *s* under policy as the average of the return following the **first** visit to state (*s*)
 - *Every-visit MC* - estimates value of state *s* under policy as the average of the return following the **every** visit to state (*s*)
-![alt_text](..\images\mc-example.JPG 'Example of first-visit monte carlo vs every-visit monte carlo')
+![alt_text](../images/mc-example.JPG 'Example of first-visit monte carlo vs every-visit monte carlo')
 
 ## **Monte Carlo Estimation of Action Value**
 - If a model is not available, then it is particularly useful to estimate *action values* (the values of state-action pairs)
@@ -26,11 +26,11 @@
 
 ## **Monte Carlo Control**
 - Overall idea is proceed according to the same patterns as in generalized policy interation (GPI) <br>
-![alt_text](..\images\mc-control-diagram.JPG 'image')
-![alt_text](..\images\mc-control-flow.JPG 'image')
+![alt_text](../images/mc-control-diagram.JPG 'image')
+![alt_text](../images/mc-control-flow.JPG 'image')
 
 ## **Monte Carlo Control without Exploring Starts**
-- *On-policy* methods: uses ε-greedy policies. Meaning select greedy action ![alt_text](..\images\nonepsilon.JPG 'image') and nongreedy randomly ![alt_text](..\images\epsilon.JPG 'image') probability
+- *On-policy* methods: uses ε-greedy policies. Meaning select greedy action ![alt_text](../images/nonepsilon.JPG 'image') and nongreedy randomly ![alt_text](../images/epsilon.JPG 'image') probability
 - *Off-policy* methods: discussed in next section
 
 ## **Off-Policy Prediction via Importance Sampling**
@@ -42,7 +42,7 @@
 - *Importance Sampling*: a general technique for estimating expected values under one distribution given samples of another.
 - *Importance-Sampling Ratio*: The relative probability of their trajectories occurring under target and behavior policies.
     - This is applied to *off-policy* learning by weighting the returns according to the *importance-sampling ratio*
-![alt_text](..\images\importance-sampling-ratio.JPG 'image')
+![alt_text](../images/importance-sampling-ratio.JPG 'image')
 - 
     - 2 approaches for averages:
         1. *Oridinary importance sampling*: simple average
@@ -55,7 +55,7 @@
 - For *off-policy*:
     - *Ordinary*: returns are scaled by the *importance sampling ratio* and the simply averaged
     - *Weighted*: form weighted average of the return, and slightly different incremental algorithm
-        ![alt_text](..\images\incremental-implementation-off-policy-weighted.JPG 'image')
+        ![alt_text](../images/incremental-implementation-off-policy-weighted.JPG 'image')
 
 ## **Discounting-aware Importance Sampling**
 - If the discount rate, *γ*, is 0. For an episode with 100 time steps, the return will be G0 = R1, but the importance sampling ratio will be scaled by the entire product. Realy just want the first factor and the other 99 are irrelevant. However they add enormously to its variance.

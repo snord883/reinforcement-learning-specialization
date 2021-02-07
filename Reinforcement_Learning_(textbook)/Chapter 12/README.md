@@ -14,10 +14,10 @@
     - A compound update can only be done when the longest of its component updates is complete.
     - Example: mixing half of a two-step return and half of a four-step return, has the diagram shown to the right.
     - *λ-return*: <br>
-    ![alt_text](..\images\lambda-return.JPG 'image')
+    ![alt_text](../images/lambda-return.JPG 'image')
     - The one-step return is given the largest weight, 1 − λ; the two-step return is given the next largest weight, (1−λ)λ; the three-step return is given the weight (1−λ)λ^2; and so on. The weight fades by λ with each additional step. After a terminal state has been reached, all subsequent n-step returns are equal to the conventional return, Gt.
-    ![alt_text](..\images\lambda-return-graph.JPG 'image')
-    ![alt_text](..\images\forward-view.JPG 'image')
+    ![alt_text](../images/lambda-return-graph.JPG 'image')
+    ![alt_text](../images/forward-view.JPG 'image')
 
 ## **TD(λ)**
 - TD(λ) improves over the offline λ-return algorithm in three ways.
@@ -26,11 +26,11 @@
     3. It can be applied to continuing problems rather than just to episodic problems.
 - The eligibility trace vector is initialized to zero at the beginning of the episode, is incremented on each time step by the value gradient, and then fades away by
 γλ <br>
-![alt_text](..\images\td-lambda.JPG 'image')
+![alt_text](../images/td-lambda.JPG 'image')
 - The weight vector is a long-term memory, accumulating over the lifetime of the system.
 - The eligibility trace is a short-term memory, typically lasting less time than the length of an episode.
     - Keeps track of which components of the weight vector have contributed, positively or negatively, to recent state valuations, where “recent” is defined in terms of γλ.
-![alt_text](..\images\backward-view.JPG 'image')
+![alt_text](../images/backward-view.JPG 'image')
 - At each moment we look at the current TD error and assign it backward to each prior state according to how much that state contributed to the current eligibility trace at that time.
     - Where the TD error and traces come together, we get the update given weight, changing the values of those past states for when they occur again in the future.
 - Different values of **λ**
@@ -55,14 +55,14 @@
         - On each time step as you gather a new increment of data, you go back and redo all the updates since the beginning of the current episode.
 
 ## **True Online TD(λ)**
-![alt_text](..\images\triangle.JPG 'image')
+![alt_text](../images/triangle.JPG 'image')
 - One row of this triangle is produced on each time step. It turns out that the weight vectors on the diagonal, the wtt, are the only ones really needed. The first, w00, is the initial weight vector of the episode, the last, wTT , is the final weight vector, and each weight vector along the way, wtt, plays a role in bootstrapping in the n-step returns of the updates. In the final algorithm the diagonal weight vectors are renamed without a superscript, wt .= wtt. The strategy then is to find a compact, efficient way of computing each wtt from the one before. If this is done, for the linear case in which ˆv(s,w) = w>x(s), then we arrive at the true online TD(") algorithm:
-![alt_text](..\images\online-td.JPG 'image')
+![alt_text](../images/online-td.JPG 'image')
 
 ## ***Dutch Traces in Monte Carlo Learning**
 
 ## **Sarsa (λ)**
-![alt_text](..\images\sarsa-lambda.JPG 'image')
+![alt_text](../images/sarsa-lambda.JPG 'image')
 
 ## **Variable λ and γ**
 - each time step will have a different λ and γ, denoted λt and γt.
@@ -70,6 +70,6 @@
 ## ***Off-policy Traces with Control Variates**
 
 ## **Watkins’s Q(λ) to Tree-Backup(λ)**
-![alt_text](..\images\watsons-q.JPG 'image')
+![alt_text](../images/watsons-q.JPG 'image')
 
-## **Stable O↵-policy Methods with Traces**
+## **Stable Off-policy Methods with Traces**

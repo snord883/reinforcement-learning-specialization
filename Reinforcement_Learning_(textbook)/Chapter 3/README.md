@@ -5,7 +5,7 @@
 - *Environment* - The thing the *agent* interacts with (everything outside the *agent*)
 - *Markov Property* - The state must include information about all aspects for the past agent-environment interaction that make a difference for the future
     - The probablity of each possible value S*t* and R*t* depends only on the immediately proceeding state and action, S*t-1* and A*t-1*, and not at all on earlier states/actions<br>
-![alt_text](..\images\agent-env.JPG 'Image of the relationship between the agent and its environment')
+![alt_text](../images/agent-env.JPG 'Image of the relationship between the agent and its environment')
 
 ## **Goals and Rewards**
 - Rewards are a way of communicating to the agent *what* you want to achieve, **not** *how* you want to achieve it 
@@ -35,8 +35,8 @@
     - Solution:
         - *Discounting* - the agent tries to maximize the expected *discounted return*
             - Agent is "myoptic" if discount rate=0, only cares about immediate reward
-![alt_text](..\images\discount-return.JPG 'Image of the discounted return function')
+![alt_text](../images/discount-return.JPG 'Image of the discounted return function')
 
 ## **Unified Notation for Episodic and Continuing Tasks**
 - *Absorbing state* - the transition only to itself and that generates only reward of zero. (This is used to have episodic task to mimic continuing tacks)
-![alt_text](..\images\absorbing-state.JPG 'Image of the absorbing state')
+![alt_text](../images/absorbing-state.JPG 'Image of the absorbing state')
