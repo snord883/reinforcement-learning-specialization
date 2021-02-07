@@ -50,7 +50,7 @@
 - *Truncated TD(λ)* (aka **TDD(λ)**): Introduce n-step to terminate contining cases.
 
 ## **Redoing Updates: Online λ-return Algorithm**
-- *n* should be large so that the method closely approximates the o✏ine "-return algorithm, but it should also be small so that the updates can be made sooner and can influence behavior sooner.
+- *n* should be large so that the method closely approximates the offine λ-return algorithm, but it should also be small so that the updates can be made sooner and can influence behavior sooner.
     - To get the best of both (albeit at the cost of computational complexity)
         - On each time step as you gather a new increment of data, you go back and redo all the updates since the beginning of the current episode.
 
